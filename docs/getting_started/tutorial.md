@@ -11,7 +11,7 @@ If you'd like to add Wagtail to an existing Django project instead, see [](integ
 
 Wagtail supports Python 3.7, 3.8, 3.9 and 3.10.
 
-To check whether you have an appropriate version of Python 3:
+To check whether you have an appropriate version of Python 3, type this in your terminal:
 
 ```console
 $ python3 --version
