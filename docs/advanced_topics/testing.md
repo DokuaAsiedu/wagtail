@@ -140,7 +140,7 @@ def test_cant_create_under_event_page(self):
     self.assertCanNotCreateAt(EventPage, ContentPage)
 ```
 
-**assertCanCreate(_parent, child_model, data, msg=None_, publish=True)**
+**assertCanCreate(_parent, child_model, data, msg=None_, publish=true)**
 Assert that a child of the given Page type can be created under the parent, using the supplied POST data.
 
 `parent` should be a Page instance, and `child_model` should be a Page subclass. `data` should be a dict that will be POSTed at the Wagtail admin Page creation method.
