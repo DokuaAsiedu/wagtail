@@ -136,8 +136,8 @@ class WagtailPageTestCase(WagtailTestUtils, TestCase):
                 ),
             )
             raise self.failureException(msg)
-            
-        if publish == False:
+
+        if not publish:
             edit_url = reverse('wagtailadmin_pages:edit', args=[Page.objects.order_by('pk').last().pk])
             if response.redirect_chain != [(edit_url, 302)]:
                 msg = self._formatMessage(msg, 'Creating a page %s.%s didnt redirect the user to the edit page %s, but to %s' % (
