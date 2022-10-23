@@ -69,7 +69,7 @@ class WagtailPageTestCase(WagtailTestUtils, TestCase):
             )
             raise self.failureException(msg)
 
-    def assertCanCreate(self, parent, child_model, data, msg=None):
+    def assertCanCreate(self, parent, child_model, data, msg=None, publish=True):
         """
         Assert that a child of the given Page type can be created under the
         parent, using the supplied POST data.
@@ -136,6 +136,15 @@ class WagtailPageTestCase(WagtailTestUtils, TestCase):
                 ),
             )
             raise self.failureException(msg)
+            
+        if publish == False:
+            edit_url = reverse('wagtailadmin_pages:edit', args=[Page.objects.order_by('pk').last().pk])
+            if response.redirect_chain != [(edit_url, 302)]:
+                msg = self._formatMessage(msg, 'Creating a page %s.%s didnt redirect the user to the edit page %s, but to %s' % (
+                    child_model._meta.app_label, child_model._meta.model_name,
+                    edit_url,
+                    response.redirect_chain))
+                raise self.failureException(msg)
 
     def assertAllowedSubpageTypes(self, parent_model, child_models, msg=None):
         """
