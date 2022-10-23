@@ -147,7 +147,7 @@ Assert that a child of the given Page type can be created under the parent, usin
 
 The `publish` argument of this test gives the option of specifying whether the page being created has been published or not. The default value being `True` checks if the response url includes the url of the Wagtail Explorer Page, displaying an error if does not include that url. 
 
-When this argument is `false`, if the response url does not include the Wagtail Edit Page url , the test fails and the error message is displayed.
+When this argument is `false`, if the response url does not include the Wagtail Edit Page url, the test fails and the error message is displayed.
 
 ```python
 from wagtail.test.utils.form_data import nested_form_data, streamfield
