@@ -172,6 +172,16 @@ class TestWagtailPageTests(WagtailPageTests):
             },
         )
 
+        self.assertCanCreate(
+            self.root,
+            SimplePage,
+            {
+                "title": "Simple Lorem Page",
+                "content": "Lorem ipsum dolor sit amet"
+            },
+            publish=False
+        )
+
     def test_assert_can_create_with_form_helpers(self):
         # same as test_assert_can_create, but using the helpers from wagtail.test.utils.form_data
         # as an end-to-end test
